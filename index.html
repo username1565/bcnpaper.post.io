@@ -2672,7 +2672,11 @@ d[e>>>5]|=128<<24-e%32;d[(e+64>>>9<<4)+14]=h.floor(b/4294967296);d[(e+64>>>9<<4)
 var BW = new function() {
 
   //var addressPrefix = 111;
-  var addressPrefix = 0x6;
+
+//var addressPrefix = 0x6;	//bytecoin (0x6 hex = 6 dec): 		https://github.com/bcndev/bytecoin/blob/c3d9b94e0d34ee486ff35e7c781f673c1097b955/src/CryptoNoteConfig.hpp#L50
+  var addressPrefix = 0x92;	//Armor(AMX) (0x92 hex = 146 dec):	https://github.com/Armor-Network/armor/blob/24872f0652e195f0c73dfc1754735afb0ea45d83/src/CryptoNoteConfig.hpp#L50 (./walletd --wallet-type=legacy), not amethyst (by default)
+//var addressPrefix = 1717961;	//try Armor(AMX) - amethyst wallet	https://github.com/Armor-Network/armor/blob/24872f0652e195f0c73dfc1754735afb0ea45d83/src/CryptoNoteConfig.hpp#L51
+	
   var salt = '4721283fee2db41e1f2fc50ea9f6d783'; // IMPORTANT: never change it, otherwise it will be impossible to restore previously generated wallets!
 
   this.getStringWords = function(string) {
